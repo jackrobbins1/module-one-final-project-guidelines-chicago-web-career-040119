@@ -9,3 +9,5 @@ gem 'rake'
 #just added this gem below
 gem "rest-client"
 gem "httparty"
+gem 'zodiac'
+gem 'date'
