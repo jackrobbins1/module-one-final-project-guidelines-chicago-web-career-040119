@@ -11,3 +11,4 @@ gem "rest-client"
 gem "httparty"
 gem 'zodiac'
 gem 'date'
+gem "colorize"

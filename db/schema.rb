@@ -14,14 +14,14 @@ ActiveRecord::Schema.define(version: 2019_04_16_184829) do
 
   create_table "horoscopes", force: :cascade do |t|
     t.string "sign"
-    t.datetime "date_range"
+    t.string "date_range"
     t.datetime "current_date"
     t.text "description"
     t.string "compatibility"
     t.string "mood"
     t.string "color"
     t.integer "lucky_number"
-    t.datetime "lucky_time"
+    t.string "lucky_time"
   end
 
   create_table "readings", force: :cascade do |t|
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_04_16_184829) do
     t.datetime "birthday"
     t.string "sign"
     t.index ["name"], name: "index_users_on_name", unique: true
+
   end
 
 end

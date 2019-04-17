@@ -1,34 +1,55 @@
 require_relative '../config/environment'
+require_relative '../lib/welcome_user'
+require_relative '../lib/logged_user'
 require 'rest-client'
 require 'json'
 require 'pry'
 require 'zodiac'
 require 'date'
+require 'colorize'
+require 'colorized_string'
+
+@current_username = ""
 
 
-def get_name_from_user
-  puts "Please enter your name"
-  gets.chomp
+def set_user(username)
+  @current_username = username
 end
 
-def get_birthdate_from_user
-  puts "Please enter your birthdate as" Date.new("YYYY/MM/DD").zodiac_sign
-  gets.chomp
+def get_user
+  @current_username
 end
 
-def get_sign_for_user
-  zsign = Date.new().zodiac_sign
+add_horoscopes_to_database
 
-  puts "Your Zodiac sign is #{zsign}"
+welcome_message
 
-end
+commands_message
 
-binding.pry
+log_in_prompt
 
-def whoami?
-  User.name
-end
+get_user_input
 
+# def get_name_from_user
+#   puts "Please enter your name"
+#   gets.chomp
+# end
+#
+# def get_birthdate_from_user
+#   puts "Please enter your birthdate as" Date.new("YYYY/MM/DD").zodiac_sign
+#   gets.chomp
+# end
+#
+# def get_sign_for_user
+#   zsign = Date.new().zodiac_sign
+#
+#   puts "Your Zodiac sign is #{zsign}"
+#
+# end
+
+
+
+# binding.pry
 # def change_user
 #
 # end
