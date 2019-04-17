@@ -15,7 +15,7 @@ def get_user_input
       puts User.all
     when "new user"
       #we need to create a method for initializing a new user!!!
-      puts "we need to create this method!!!"
+      new_user
     when "whoami?"
       #we need to create a method for initializing a new user!!!
       #code below is pseudo code

@@ -24,6 +24,7 @@ def who_am_i
   output_spacer
 end
 
+
 # def test_zodiac
 #   bday = "12/10"
 #   year = 1990
