@@ -12,7 +12,8 @@ def get_user_input
     when "commands"
       list_commands
     when "users"
-      puts User.all
+      list_all_names
+
     when "new user"
       #we need to create a method for initializing a new user!!!
       new_user
@@ -23,6 +24,13 @@ def get_user_input
       who_am_i
     when "change user"
       change_user
+
+    when "get horoscope"
+      get_horoscope
+      #get_horoscopes = Horoscope.where("sign = :sign", { name: current_user.sign.downcase }).last
+    when "find horoscope"
+      #find horoscope
+
     end
   end
 end
@@ -42,6 +50,15 @@ def list_commands
   puts text
   output_spacer
 end
+
+
+def list_all_names
+  name_array = User.pluck :name
+  name_array.each do |name| name.colorize(:blue)
+  end
+end
+
+
 
 #binding.pry
 "wut"

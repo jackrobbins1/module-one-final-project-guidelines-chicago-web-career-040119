@@ -20,16 +20,19 @@ def get_user
   @current_username
 end
 
-add_horoscopes_to_database
+# add_horoscopes_to_database
+#
+# welcome_message
+#
+# commands_message
+#
+# log_in_prompt
+#
+# get_user_input
 
-welcome_message
 
-commands_message
 
-log_in_prompt
-
-get_user_input
-
+find_horoscope
 # def get_name_from_user
 #   puts "Please enter your name"
 #   gets.chomp
