@@ -39,6 +39,10 @@ def add_horoscopes_to_database
       new_horoscope.save
       #binding.pry
     }
+  else
+    message = "Horoscopes from today already downloaded from THE COSMOS\n".colorize(:blue)
+    slow_print(message)
+    output_spacer
   end
 
 end

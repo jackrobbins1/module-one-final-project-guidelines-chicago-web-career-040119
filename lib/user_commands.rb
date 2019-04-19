@@ -1,20 +1,35 @@
 require_relative "../config/environment"
+
 require "pry"
 require "zodiac"
 require "date"
+
+# require "pry"
+# require "zodiac"
+# require "date"
+
 require_relative './welcome_user'
 require_relative './models/user'
 
 def new_user
+
  message1 = "Please enter new user name\n"
  slow_print(message1)
  name = gets.chomp
  message2 = "Please enter your birthday MM/DD\n"
+
+ message1 = "Please enter new user name\n".colorize(:yellow)
+ slow_print(message1)
+ name = gets.chomp
+ message2 = "Please enter your birthday MM/DD\n".colorize(:yellow)
  slow_print(message2)
  birthday = gets.chomp
  sign = validator(birthday)
  User.create(name: name, birthday: birthday, sign: sign)
 end
+
+
+
 
 
 def validator(bday)
@@ -34,6 +49,7 @@ def get_sign(month, day, year=1990)
  sign = Date.new(year, month, day).zodiac_sign
  sign
 end
+
 
 
 #binding.pry

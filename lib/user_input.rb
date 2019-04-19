@@ -1,18 +1,21 @@
-def output_spacer
-  puts "\n"
-  2.times {|i| puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:>"}
-end
+require_relative "../config/environment"
+# def output_spacer
+#   puts "\n"
+#   2.times {|i| puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:>"}
+# end
 
 def get_user_input
   input = ""
   while input != "quit"
-    puts "What command do you want to run?"
+    output_spacer
+    puts "Enter a command".colorize(:yellow)
     input = gets.chomp
     case input
     when "commands"
       list_commands
     when "users"
       list_all_names
+
 
     when "new user"
       #we need to create a method for initializing a new user!!!
@@ -25,11 +28,28 @@ def get_user_input
     when "change user"
       change_user
 
+
     when "get horoscope"
-      get_horoscope
+      get_my_horoscope
       #get_horoscopes = Horoscope.where("sign = :sign", { name: current_user.sign.downcase }).last
     when "find horoscope"
       #find horoscope
+      find_horoscope
+
+    when "match me"
+      #Need this method
+
+    when "my color"
+      find_color
+
+    when "lucky number"
+      find_lucky_number
+
+    when "quit"
+      break
+    else
+      error_message = "That command does not exist\n".colorize(:blue)
+      slow_print(error_message)
 
     end
   end
@@ -40,15 +60,25 @@ def list_commands
   commands --> list all commands in VHR
   users --> list all registered users
   new user --> create a new user
-  whoami? --> see the current logged in user
+  whoami? --> see the current user logged in
   change user -- switch VHR to another user
   get horoscope --> see your horoscope reading for today
   find horoscope --> see list of your saved horoscopes
+  match me --> find a cosmologically determined blind date
+  my color --> the cosmos thinks you look great in this color today
+  lucky number --> see your cosmologically chosen lucky number
   quit --> quit the program
   MAGIC
 
   puts text
-  output_spacer
+end
+
+def all_names
+  User.pluck :name
+end
+
+def list_all_names
+  all_names.each {|name| puts name.colorize(:blue)}
 end
 
 

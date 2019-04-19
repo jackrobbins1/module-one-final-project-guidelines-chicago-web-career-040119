@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(version: 2019_04_16_184829) do
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "birthday"
+
+    t.string "name"
+    t.string "birthday"
+
     t.string "sign"
     t.index ["name"], name: "index_users_on_name", unique: true
 
